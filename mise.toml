@@ -1,8 +1,8 @@
 [env]
 DBT_PROFILES_DIR="{{ config_root }}/ncdac_opi_analytics"
 DBT_PROJECT_DIR="{{ config_root }}/ncdac_opi_analytics"
-DATABASE_SOURCE="{{ config_root }}/data/ncdac-source.db"
-DATABASE_ANALYTICS="{{ config_root }}/data/ncdac-analytics.duckdb"
+DATABASE_SOURCE="{{ config_root }}/data/ncdac_source.db"
+DATABASE_ANALYTICS="{{ config_root }}/data/ncdac_analytics.duckdb"
 
 [tools]
 duckdb = "latest"

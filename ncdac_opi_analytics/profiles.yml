@@ -4,6 +4,8 @@ ncdac_opi_analytics:
     dev:
       type: duckdb
       path: "{{ env_var('DATABASE_ANALYTICS') }}"
+      extensions:
+        - sqlite
       attach:
         - path: "{{ env_var('DATABASE_SOURCE') }}"
           type: sqlite

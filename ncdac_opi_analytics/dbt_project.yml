@@ -31,5 +31,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ncdac_opi_analytics:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    staging:
+      +materialized: table
+      +database: ncdac_analytics
+      +schema: staging
+    intermediate:
       +materialized: view
+      +database: ncdac_analytics
+      +schema: int
+    marts:
+      +materialized: table
+      +database: ncdac_analytics
+      +schema: marts

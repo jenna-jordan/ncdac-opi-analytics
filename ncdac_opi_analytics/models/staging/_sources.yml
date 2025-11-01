@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: ncdac
+    database: ncdac_source
+    schema: main
+    tables:
+      - name: column_descriptions
+      - name: court_commmitment
+      - name: disciplinary_infractions
+      - name: financial_obligation
+      - name: impact_scheduling_request
+      - name: inmate_profile
+      - name: offender_profile
+      - name: parole_analyst_review
+      - name: probation_and_parole_client_profile
+      - name: sentence_component
+      - name: sentence_computations
+      - name: special_conditions_and_sanctions
+      - name: warrant_issued
