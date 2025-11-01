@@ -1,0 +1,10 @@
+ncdac_opi_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DATABASE_ANALYTICS') }}"
+      attach:
+        - path: "{{ env_var('DATABASE_SOURCE') }}"
+          type: sqlite
+      threads: 1

@@ -1,0 +1,25 @@
+[env]
+DBT_PROFILES_DIR="{{ config_root }}/ncdac_opi_analytics"
+DBT_PROJECT_DIR="{{ config_root }}/ncdac_opi_analytics"
+DATABASE_SOURCE="{{ config_root }}/data/ncdac-source.db"
+DATABASE_ANALYTICS="{{ config_root }}/data/ncdac-analytics.duckdb"
+
+[tools]
+duckdb = "latest"
+python = "3.13"
+uv = "latest"
+
+[vars]
+uv_run = "uv run"
+
+[tasks."test:python"]
+description = "Tests that Python is installed and in the $PATH"
+run = "{{vars.uv_run}} main.py"
+
+[tasks."test:dbt"]
+description = "Tests that dbt is installed correctly"
+run = "mise run dbt --version"
+
+[tasks.dbt]
+description = "Wrapper command for dbt. All args are passed to dbt"
+run = "{{vars.uv_run}} dbt"
