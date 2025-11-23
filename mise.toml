@@ -23,3 +23,23 @@ run = "mise run dbt --version"
 [tasks.dbt]
 description = "Wrapper command for dbt. All args are passed to dbt"
 run = "{{vars.uv_run}} dbt"
+
+[tasks."dbt:codegen:base_model"]
+description = "Generates the sql file for a staging model"
+usage = '''
+flag "--source <source>" help="dbt source name" default="ncdac"
+flag "--table <table>" help="table name"
+'''
+run = '''
+{{vars.uv_run}} dbt --quiet run-operation generate_base_model --args "{'source_name': '${usage_source?}', 'table_name': '$usage_table'}" >> $DBT_PROJECT_DIR/models/staging/stg__$usage_table.sql
+'''
+
+[tasks."dbt:codegen:model_yaml"]
+description = "Generates the yaml file for a dbt model"
+usage = '''
+flag "--model <model>" help="model name"
+flag "--path <path>" help="path to model, starting with models/"
+'''
+run = '''
+{{vars.uv_run}} dbt --quiet run-operation generate_model_yaml --args "{'model_names': ['$usage_model']}" >> $DBT_PROJECT_DIR/$usage_path/$usage_model.yml
+'''

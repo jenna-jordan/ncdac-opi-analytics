@@ -6,6 +6,8 @@ ncdac_opi_analytics:
       path: "{{ env_var('DATABASE_ANALYTICS') }}"
       extensions:
         - sqlite
+      settings:
+        sqlite_all_varchar: true
       attach:
         - path: "{{ env_var('DATABASE_SOURCE') }}"
           type: sqlite

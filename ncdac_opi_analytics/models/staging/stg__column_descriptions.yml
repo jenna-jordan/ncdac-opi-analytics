@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg__column_descriptions
+    description: ""
+    columns:
+      - name: table_name
+        data_type: varchar
+        description: ""
+
+      - name: column_name
+        data_type: varchar
+        description: ""
+
+      - name: description
+        data_type: varchar
+        description: ""
+
